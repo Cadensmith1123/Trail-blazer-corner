@@ -7,7 +7,7 @@ import { PostDetail, Categories, PostWidget, Author, Comments, CommentsForm, Loa
 const PostDetails = ({ post }) => {
 const router = useRouter();
 
-if(router.isFallback) {
+if (router.isFallback) {
   return <Loader />
 }
   return (
@@ -35,11 +35,12 @@ if(router.isFallback) {
 export default PostDetails
 
 export async function getStaticProps({ params }) {
+    console.log(`Building slug: ${slug}`)
     const data = await getPostDetails(params.slug);
   
     return {
-      props: { post: data }
-    }
+      props: { post: data, },
+    };
   }
 
 
